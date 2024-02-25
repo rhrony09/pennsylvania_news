@@ -16,12 +16,11 @@
             </div>
             <div class="col-sm-3 DSocialLink">
                 <ul>
-                    <li><a href="#" target="_blank"><i class="fa fa-facebook-square fa-lg"></i></a></li>
-                    <li><a href="#" target="_blank"><i class="fa fa-youtube-square fa-lg"></i></a></li>
-                    <li><a href="#" target="_blank"><i class="fa fa-google-plus-square fa-lg"></i></a></li>
-                    <li><a href="#" target="_blank"><i class="fa fa-linkedin fa-lg"></i></a></li>
-                    <li><a href="#" target="_blank"><i class="fa fa-twitter-square fa-lg"></i></a></li>
-                    <li><a href="rss/rss.xml" target="_blank"><i class="fa fa-rss-square fa-lg"></i></a></li>
+                    @foreach ($social_medias->whereNotNull('link') as $social_media)
+                        <li>
+                            <a href="{{ $social_media->link }}" target="_blank"><i class="fa-brands {{ $social_media->icon }}"></i></a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>

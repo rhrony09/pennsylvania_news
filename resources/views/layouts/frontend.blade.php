@@ -33,7 +33,7 @@
     <link type="image/x-icon" rel="icon" href="{{ asset("uploads/logos/$settings->favicon") }}">
 
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/bootstrap/3.3.7/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/font-awesome/4.7.0/css/font-awesome.min.css') }}">
+    <link href="{{ asset('assets/vendor/font-awsome-6.5.1-pro/css/all.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/css/style.css?v=' . $settings->version) }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/css/SolaimanLipi.css') }}">
     @stack('style')

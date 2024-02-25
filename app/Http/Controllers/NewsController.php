@@ -112,6 +112,7 @@ class NewsController extends Controller {
 
     public function delete(News $news) {
         $news->delete();
+        unlink('uploads/news/' . $news->featured_image);
         return back()->with('success', 'News deleted successfully.');
     }
 }

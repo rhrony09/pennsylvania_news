@@ -59,22 +59,52 @@
 
                     <div class="row">
                         <div class="col-sm-12 DSocialBottom">
-                            <div class="addthis_inline_share_toolbox"></div>
+                            <!-- AddToAny Share Buttons -->
+                            <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                                <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+                                <a class="a2a_button_facebook"></a>
+                                <a class="a2a_button_twitter"></a>
+                                <a class="a2a_button_linkedin"></a>
+                                <a class="a2a_button_pinterest"></a>
+                            </div>
                         </div>
                     </div>
 
                     <div class="row DMarginT30">
                         <div class="col-sm-12">
-                            <div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid_desktop" data-href="https://www.ajkalusa.com/সুখবর-দিলেন-মেহজাবিন/26060" data-numposts="3" fb-xfbml-state="rendered"
-                                fb-iframe-plugin-query="app_id=1782035548574884&amp;container_width=750&amp;height=100&amp;href=https%3A%2F%2Fwww.ajkalusa.com%2F%25E0%25A6%25B8%25E0%25A7%2581%25E0%25A6%2596%25E0%25A6%25AC%25E0%25A6%25B0-%25E0%25A6%25A6%25E0%25A6%25BF%25E0%25A6%25B2%25E0%25A7%2587%25E0%25A6%25A8-%25E0%25A6%25AE%25E0%25A7%2587%25E0%25A6%25B9%25E0%25A6%259C%25E0%25A6%25BE%25E0%25A6%25AC%25E0%25A6%25BF%25E0%25A6%25A8%2F26060&amp;locale=en_US&amp;numposts=3&amp;sdk=joey&amp;version=v3.0&amp;width=550">
-                                <span style="vertical-align: bottom; width: 550px; height: 215px;"><iframe name="f4e6b23d3f5a4f904" width="550px" height="100px" data-testid="fb:comments Facebook Social Plugin" title="fb:comments Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media"
-                                        src="https://www.facebook.com/v3.0/plugins/comments.php?app_id=1782035548574884&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df83195053c6e85016%26domain%3Dwww.ajkalusa.com%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fwww.ajkalusa.com%252Ff1c75f45408f9a567%26relation%3Dparent.parent&amp;container_width=750&amp;height=100&amp;href=https%3A%2F%2Fwww.ajkalusa.com%2F%25E0%25A6%25B8%25E0%25A7%2581%25E0%25A6%2596%25E0%25A6%25AC%25E0%25A6%25B0-%25E0%25A6%25A6%25E0%25A6%25BF%25E0%25A6%25B2%25E0%25A7%2587%25E0%25A6%25A8-%25E0%25A6%25AE%25E0%25A7%2587%25E0%25A6%25B9%25E0%25A6%259C%25E0%25A6%25BE%25E0%25A6%25AC%25E0%25A6%25BF%25E0%25A6%25A8%2F26060&amp;locale=en_US&amp;numposts=3&amp;sdk=joey&amp;version=v3.0&amp;width=550"
-                                        style="border: none; visibility: visible; width: 550px; height: 215px;" class=""></iframe></span>
+                            <h3>মন্তব্যঃ</h3>
+                            @forelse ($news->comments as $comment)
+                                <div class="comment">
+                                    <p><strong>{{ $comment->user_id ? $comment->user->name : $comment->name }}</strong> বলেছেন, <small>{{ convertTimeToBangla($comment->created_at->format('h:i A')) }}, {{ bangla_date($comment->created_at->timestamp, 'en') }}</small></p>
+                                    <p>{{ $comment->comment }}</p>
+                                </div>
+                            @empty
+                                <p>দুঃখিত, কোন মন্তব্য পাওয়া যায়নি!</p>
+                            @endforelse
+                        </div>
+                        <div class="col-sm-12 DMarginT30">
+                            <div class="card">
+                                <h4>নতুন মন্তব্য করুন:</h4>
+                                <div id="form-response"></div>
+                                <form id="comment-form">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $news->id }}">
+                                    @if (!auth()->check())
+                                        <div class="form-group">
+                                            <label for="name">আপনার নাম:</label>
+                                            <input type="text" name="name" id="name" class="form-control" autocomplete="off">
+                                        </div>
+                                    @endif
+                                    <div class="form-group DMargin0">
+                                        <label for="name">মন্তব্য লিখুন:</label>
+                                        <textarea name="comment" id="comment" class="form-control" rows="4"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">সাবমিট</button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-
 
                 <!--RightSide-->
                 @include('sections.frontend.sidebar')
@@ -84,35 +114,64 @@
 @endsection
 
 @push('script')
+    <script async src="https://static.addtoany.com/menu/page.js"></script>
     <script type="text/javascript">
-        $(function() {
-            $("#btnIncrease").click(function() {
-                $(".DDetailsBody").children().each(function() {
-                    var size = parseInt($(this).css("font-size"));
-                    size = size + 1 + "px";
-                    $(this).css({
-                        'font-size': size
-                    });
+        $('#comment-form').submit(function(e) {
+            $('#form-errors').html('');
+            e.preventDefault();
+            $.ajax({
+                method: 'POST',
+                url: "{{ route('comment') }}",
+                data: $(this).serialize(),
+                success: function(response) {
+                    let html = `<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>` + response.message + `</div>`;
+                    $('#form-response').html(html);
+                    $('#comment-form').trigger("reset");
+                    if (response.status == 'Approved') {
+                        window.location.reload();
+                    }
+                },
+                error: function(response) {
+                    let errors = response.responseJSON.errors;
+                    let errorsHtml = `<div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><ul>`;
+                    if (errors) {
+                        $.each(errors, function(key, value) {
+                            errorsHtml += '<li>' + value + '</li>';
+                        });
+                    } else {
+                        errorsHtml += '<li>' + response.responseJSON.message + '</li>';
+                    }
+                    errorsHtml += '</ul></div>';
+
+                    $('#form-response').html(errorsHtml);
+                }
+            });
+        });
+
+        $("#btnIncrease").click(function() {
+            $(".DDetailsBody").children().each(function() {
+                var size = parseInt($(this).css("font-size"));
+                size = size + 1 + "px";
+                $(this).css({
+                    'font-size': size
                 });
             });
         });
-        $(function() {
-            $("#btnOriginal").click(function() {
-                $(".DDetailsBody").children().each(function() {
-                    $(this).css({
-                        'font-size': '18px'
-                    });
+
+        $("#btnOriginal").click(function() {
+            $(".DDetailsBody").children().each(function() {
+                $(this).css({
+                    'font-size': '18px'
                 });
             });
         });
-        $(function() {
-            $("#btnDecrease").click(function() {
-                $(".DDetailsBody").children().each(function() {
-                    var size = parseInt($(this).css("font-size"));
-                    size = size - 1 + "px";
-                    $(this).css({
-                        'font-size': size
-                    });
+
+        $("#btnDecrease").click(function() {
+            $(".DDetailsBody").children().each(function() {
+                var size = parseInt($(this).css("font-size"));
+                size = size - 1 + "px";
+                $(this).css({
+                    'font-size': size
                 });
             });
         });

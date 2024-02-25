@@ -1,6 +1,22 @@
 @extends('layouts.frontend')
 
 @section('content')
+    @php
+        $ad_1 = 'ad-placeholder-360x280.jpg';
+        $ad_2 = 'ad-placeholder-360x280.jpg';
+        $ad_3 = 'ad-placeholder-360x280.jpg';
+        if ($square_ads->count() > 0) {
+            if ($square_ads->count() >= 1) {
+                $ad_1 = $square_ads->first()->image . '?v=' . now()->timestamp;
+            }
+            if ($square_ads->count() >= 2) {
+                $ad_2 = $square_ads->skip(1)->first()->image . '?v=' . now()->timestamp;
+            }
+            if ($square_ads->count() >= 3) {
+                $ad_3 = $square_ads->skip(2)->first()->image . '?v=' . now()->timestamp;
+            }
+        }
+    @endphp
     <main>
         <div class="row">
             <div class="col-sm-9">
@@ -179,7 +195,9 @@
                 <!-- ad start -->
                 <div class="row DMarginTop10">
                     <div class="col-sm-12">
-                        <img src="{{ asset('uploads/ads/ad-placeholder-360x280.jpg') }}" alt="ad" title="ad" class="img-responsive img100">
+                        <div class="ad-image">
+                            <img src="{{ asset('uploads/ads/' . $ad_1) }}" alt="ad" title="ad" class="img-responsive img100">
+                        </div>
                     </div>
                 </div>
                 <!-- ad end -->
@@ -220,7 +238,9 @@
                 <!-- ad start -->
                 <div class="row DMarginTop10">
                     <div class="col-sm-12">
-                        <img src="{{ asset('uploads/ads/ad-placeholder-360x280.jpg') }}" alt="ad" title="ad" class="img-responsive img100">
+                        <div class="ad-image">
+                            <img src="{{ asset('uploads/ads/' . $ad_2) }}" alt="ad" title="ad" class="img-responsive img100">
+                        </div>
                     </div>
                 </div>
                 <!-- ad end -->
@@ -270,7 +290,9 @@
                 <!-- ad start -->
                 <div class="row DMarginTop10">
                     <div class="col-sm-12">
-                        <img src="{{ asset('uploads/ads/ad-placeholder-360x280.jpg') }}" alt="ad" title="ad" class="img-responsive img100">
+                        <div class="ad-image">
+                            <img src="{{ asset('uploads/ads/' . $ad_3) }}" alt="ad" title="ad" class="img-responsive img100">
+                        </div>
                     </div>
                 </div>
                 <!-- ad end -->

@@ -7,7 +7,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <table class="table table-bordered table-striped align-middle text-center datatable" width="100%">
+            <table class="table table-bordered table-striped align-middle text-center datatable" width="100%" style="min-width: 800px">
                 <thead>
                     <tr>
                         <th class="text-center" width="5%">S/N</th>
@@ -33,7 +33,7 @@
                             </td>
                             <td>
                                 <x-dropdown>
-                                    <x-dropdownLink icon="eye" link="#">View</x-dropdownLink>
+                                    <x-dropdownLink icon="eye" link="{{ route('news', $news->slug) }}">View</x-dropdownLink>
                                     <x-dropdownLink icon="pen-to-square" link="{{ route('dashboard.news.edit', $news->id) }}">Edit</x-dropdownLink>
                                     <x-dropdownButton class="news-delete" icon="trash-can" data-id="{{ $news->id }}">Delete</x-dropdownButton>
                                 </x-dropdown>

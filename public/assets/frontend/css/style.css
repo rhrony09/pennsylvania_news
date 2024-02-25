@@ -245,6 +245,61 @@ p {
 	background-color: var(--rh-primary-color);
 }
 
+.card {
+	background-color: #fff;
+	padding: 15px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.card h4 {
+	margin: 0;
+	margin-bottom: 20px;
+	font-size: 22px;
+	font-weight: 500;
+}
+
+.card button.btn-primary {
+	margin-top: 10px;
+	background-color: var(--rh-primary-color);
+}
+
+.alert ul {
+	padding-left: 20px;
+	margin: 0;
+}
+
+.comment {
+	padding-bottom: 15px;
+}
+
+.comment p {
+	margin: 0;
+}
+
+.comment small {
+	font-size: 12px;
+	color: #777;
+}
+
+.ad-image {
+	position: relative;
+}
+
+.ad-image::after {
+	content: 'AD';
+	position: absolute;
+	background-color: var(--rh-primary-color);
+	color: #fff;
+	padding: 5px;
+	top: 5px;
+	right: 5px;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 1rem;
+	border-radius: 3px;
+}
+
 @media(min-width:768px) {
 	ul.nav li:hover>ul.dropdown-menu {
 		display: block;

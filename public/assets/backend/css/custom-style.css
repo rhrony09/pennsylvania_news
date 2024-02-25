@@ -245,9 +245,20 @@ label sup {
 .news-thumbnail {
     width: 100%;
     max-width: 130px;
+}
 
+.ads-thumbnail {
+    width: 100%;
+    max-width: 180px;
 }
 
 .dropdown-toggle {
     border-color: #c4c4c4 !important;
+}
+
+.bubble {
+    padding: .375rem .75rem;
+    border-radius: .375rem;
+    color: #fff;
+    line-height: 1.5;
 }

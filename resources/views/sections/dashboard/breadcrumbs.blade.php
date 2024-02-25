@@ -1,6 +1,3 @@
-@php
-    $breadcrumbs = Request::segments();
-@endphp
 <div class="page-breadcrumb d-sm-flex align-items-center mb-3">
     <div class="breadcrumb-title pe-3">{{ isset($page_title) ? $page_title : ucwords(end($breadcrumbs)) }}
     </div>

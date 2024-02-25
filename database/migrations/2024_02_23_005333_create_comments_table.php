@@ -9,11 +9,13 @@ return new class extends Migration {
      * Run the migrations.
      */
     public function up(): void {
-        Schema::create('social_media_accounts', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string('link');
-            $table->enum('status', ['active', 'inactive'])->default('active');
-            $table->foreignId('social_media_id')->constrained();
+            $table->text('comment');
+            $table->foreignId('user_id')->nullable()->constrained();
+            $table->foreignId('news_id')->constrained();
+            $table->enum('status', ['Pending', 'Approved', 'Rejected'])->default('Pending');
+            $table->string('name')->nullable();
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration {
      * Reverse the migrations.
      */
     public function down(): void {
-        Schema::dropIfExists('social_media_accounts');
+        Schema::dropIfExists('comments');
     }
 };

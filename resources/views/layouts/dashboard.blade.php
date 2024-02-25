@@ -1,11 +1,14 @@
 <!doctype html>
 <html lang="en" class="semi-dark">
+@php
+    $breadcrumbs = Request::segments();
+@endphp
 
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="{{ asset('assets/backend/images/favicon-32x32.png') }}" type="image/png" />
+    <link rel="icon" href="{{ asset("uploads/logos/$settings->favicon") }}" type="image/png" />
     <!--plugins-->
     <link href="{{ asset('assets/backend/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/backend/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
@@ -17,7 +20,7 @@
     <link href="{{ asset('assets/backend/css/style.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/backend/css/icons.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons-1-11-1.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/font-awsome-6.2.1-pro/css/all.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/font-awsome-6.5.1-pro/css/all.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/dropify-0.2.2/css/dropify.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/quill/quill.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/select2@4.1.0/select2.css') }}" rel="stylesheet" />
@@ -36,7 +39,7 @@
     <link href="{{ asset('assets/backend/css/custom-style.css?v="' . $settings->version . '"') }}" rel="stylesheet" />
 
     @stack('style')
-    <title>Onedash - Bootstrap 5 Admin Template</title>
+    <title>{{ isset($page_title) ? $page_title . ' | ' . $settings->site_name : ucwords(end($breadcrumbs)) . ' | ' . $settings->site_name }}</title>
 </head>
 
 <body>
@@ -180,7 +183,7 @@
             });
 
             new DataTable('.datatable', {
-                "pageLength": 25,
+                "pageLength": 50,
                 "scrollX": true
             });
 

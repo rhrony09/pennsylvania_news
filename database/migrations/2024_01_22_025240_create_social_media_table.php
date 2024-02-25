@@ -14,69 +14,50 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->string('icon');
+            $table->string('link')->nullable();
             $table->timestamps();
         });
 
         $social_medias = [
             [
                 "name" => "Facebook",
-                "icon" => "fa-brands fa-facebook"
+                "icon" => "fa-facebook"
             ],
             [
                 "name" => "Twitter",
-                "icon" => "fa-brands fa-twitter"
+                "icon" => "fa-x-twitter"
             ],
             [
                 "name" => "Instagram",
-                "icon" => "fa-brands fa-instagram"
+                "icon" => "fa-instagram"
             ],
             [
                 "name" => "LinkedIn",
-                "icon" => "fa-brands fa-linkedin-in"
-            ],
-            [
-                "name" => "Pinterest",
-                "icon" => "fa-brands fa-pinterest"
-            ],
-            [
-                "name" => "Snapchat",
-                "icon" => "fa-brands fa-snapchat"
-            ],
-            [
-                "name" => "YouTube",
-                "icon" => "fa-brands fa-youtube"
-            ],
-            [
-                "name" => "Reddit",
-                "icon" => "fa-brands fa-reddit-alien"
-            ],
-            [
-                "name" => "Tumblr",
-                "icon" => "fa-brands fa-tumblr"
+                "icon" => "fa-linkedin-in"
             ],
             [
                 "name" => "WhatsApp",
-                "icon" => "fa-brands fa-whatsapp"
+                "icon" => "fa-whatsapp"
+            ],
+            [
+                "name" => "Pinterest",
+                "icon" => "fa-pinterest"
+            ],
+            [
+                "name" => "YouTube",
+                "icon" => "fa-youtube"
+            ],
+            [
+                "name" => "Reddit",
+                "icon" => "fa-reddit-alien"
             ],
             [
                 "name" => "Telegram",
-                "icon" => "fa-brands fa-telegram"
-            ],
-            [
-                "name" => "Flickr",
-                "icon" => "fa-brands fa-flickr"
-            ],
-            [
-                "name" => "Vimeo",
-                "icon" => "fa-brands fa-vimeo-v"
+                "icon" => "fa-telegram"
             ],
             [
                 "name" => "TikTok",
-                "icon" => "fa-brands fa-tiktok"
-            ],
-            [
-                "name" => "WeChat",
-                "icon" => "fa-brands fa-weixin"
+                "icon" => "fa-tiktok"
             ]
         ];
 

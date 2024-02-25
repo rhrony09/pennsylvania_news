@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\SettingsUpdateRequest;
+use App\Http\Requests\Settings\SettingsUpdateRequest;
 use App\Models\Setting;
 use Image;;
 

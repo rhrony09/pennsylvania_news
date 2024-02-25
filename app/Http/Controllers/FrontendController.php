@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Reply;
+use App\Http\Requests\Comment\CommentStoreRequest;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\News;
 use Illuminate\Http\Request;
 
@@ -34,7 +37,7 @@ class FrontendController extends Controller {
     }
 
     public function news($slug) {
-        $news = News::where('slug', $slug)->first();
+        $news = News::where('slug', $slug)->with('comments')->first();
         $news->view_count = $news->view_count + 1;
         $news->save();
         $data = [
@@ -43,6 +46,19 @@ class FrontendController extends Controller {
             'page_title' => $news->title,
         ];
         return view('frontend.single-news', $data);
+    }
+
+    public function comment(CommentStoreRequest $request) {
+        $status = auth()->check() ? 'Approved' : 'Pending';
+        $message = auth()->check() ? 'আপনার মন্তব্যটি গ্রহণ করা হয়েছে। ধন্যবাদ।' : 'আপনার মন্তব্যটি গ্রহণ করা হয়েছে। অনুগ্রহ করে এপ্রুভ এর জন্য অপেক্ষা করুন। ধন্যবাদ।';
+        Comment::create([
+            'comment' => $request->comment,
+            'name' => $request->name,
+            'user_id' => auth()->check() ? auth()->user()->id : null,
+            'news_id' => $request->id,
+            'status' => $status,
+        ]);
+        return Reply::dataOnly(['status' => $status, 'message' => $message]);
     }
 
     public function archives(Request $request) {

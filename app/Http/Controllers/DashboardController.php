@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Avatar;
 
 class DashboardController extends Controller {
-    public function index(): View {
-        return view('dashboard.index');
+    public function index() {
+        return redirect()->route('dashboard.news.index');
     }
 }
