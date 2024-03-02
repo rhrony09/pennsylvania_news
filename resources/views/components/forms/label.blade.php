@@ -1,5 +1,5 @@
 <label {{ $attributes->merge(['class' => 'mb-1']) }} for="{{ $fieldId }}">{{ $fieldLabel }}
-    @isset($fieldRequired == 'true')
+    @isset($fieldRequired)
         <sup class="mr-1">*</sup>
     @endisset
 
