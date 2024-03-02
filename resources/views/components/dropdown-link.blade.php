@@ -1,7 +1,7 @@
 <li>
     <a class="dropdown-item" href="{{ $link }}">
-        @if ($icon != '')
+        @isset($icon)
             <i class="fa fa-{{ $icon }}"></i>
-        @endif {{ $slot }}
+        @endisset {{ $slot }}
     </a>
 </li>
