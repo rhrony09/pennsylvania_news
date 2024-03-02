@@ -25,8 +25,8 @@
                                     <td>{{ $category->slug }}</td>
                                     <td>
                                         <x-dropdown>
-                                            <x-dropdownButton class="category-edit" icon="pen-to-square" data-id="{{ $category->id }}">Edit</x-dropdownButton>
-                                            <x-dropdownButton class="category-delete" icon="trash-can" data-id="{{ $category->id }}">Delete</x-dropdownButton>
+                                            <x-dropdown-button class="category-edit" icon="pen-to-square" data-id="{{ $category->id }}">Edit</x-dropdown-button>
+                                            <x-dropdown-button class="category-delete" icon="trash-can" data-id="{{ $category->id }}">Delete</x-dropdown-button>
                                         </x-dropdown>
                                     </td>
                                 </tr>

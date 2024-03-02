@@ -36,9 +36,9 @@
                             </td>
                             <td>
                                 <x-dropdown>
-                                    <x-dropdownButton class="ad-view" icon="eye" data-id="{{ $ad->id }}">View</x-dropdownButton>
-                                    <x-dropdownButton class="ad-edit" icon="pencil-alt" data-id="{{ $ad->id }}">Edit</x-dropdownButton>
-                                    <x-dropdownButton class="ad-delete" icon="trash-can" data-id="{{ $ad->id }}">Delete</x-dropdownButton>
+                                    <x-dropdown-button class="ad-view" icon="eye" data-id="{{ $ad->id }}">View</x-dropdown-button>
+                                    <x-dropdown-button class="ad-edit" icon="pencil-alt" data-id="{{ $ad->id }}">Edit</x-dropdown-button>
+                                    <x-dropdown-button class="ad-delete" icon="trash-can" data-id="{{ $ad->id }}">Delete</x-dropdown-button>
                                 </x-dropdown>
                             </td>
                         </tr>

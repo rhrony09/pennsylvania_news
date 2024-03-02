@@ -33,9 +33,9 @@
                             </td>
                             <td>
                                 <x-dropdown>
-                                    <x-dropdownLink icon="eye" link="{{ route('news', $news->slug) }}">View</x-dropdownLink>
-                                    <x-dropdownLink icon="pen-to-square" link="{{ route('dashboard.news.edit', $news->id) }}">Edit</x-dropdownLink>
-                                    <x-dropdownButton class="news-delete" icon="trash-can" data-id="{{ $news->id }}">Delete</x-dropdownButton>
+                                    <x-dropdown-link icon="eye" link="{{ route('news', $news->slug) }}">View</x-dropdown-link>
+                                    <x-dropdown-link icon="pen-to-square" link="{{ route('dashboard.news.edit', $news->id) }}">Edit</x-dropdown-link>
+                                    <x-dropdown-button class="news-delete" icon="trash-can" data-id="{{ $news->id }}">Delete</x-dropdown-button>
                                 </x-dropdown>
                             </td>
                         </tr>

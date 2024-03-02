@@ -41,7 +41,7 @@
                             </td>
                             <td>
                                 <x-dropdown>
-                                    <x-dropdownButton class="comment-delete" icon="trash-can" data-id="{{ $comment->id }}">Delete</x-dropdownButton>
+                                    <x-dropdown-button class="comment-delete" icon="trash-can" data-id="{{ $comment->id }}">Delete</x-dropdown-button>
                                 </x-dropdown>
                             </td>
                         </tr>
