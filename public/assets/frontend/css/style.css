@@ -262,12 +262,12 @@ p {
 .card button.btn-primary,
 .gallery-btn {
 	margin-top: 10px;
-	background-color: var(--rh-primary-color);
+	background-color: var(--rh-primary-color) !important;
 }
 
 .card button.btn-primary:hover,
 .gallery-btn:hover {
-	background-color: var(--rh-primary-accent-color);
+	background-color: var(--rh-primary-accent-color) !important;
 }
 
 .alert ul {
