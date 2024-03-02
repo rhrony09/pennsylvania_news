@@ -6,6 +6,7 @@ use App\Helpers\Reply;
 use App\Http\Requests\Comment\CommentStoreRequest;
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Gallery;
 use App\Models\News;
 use Illuminate\Http\Request;
 
@@ -21,6 +22,7 @@ class FrontendController extends Controller {
             'sports' => News::where('category_id', 6)->latest()->take(5)->get(),
             'international' => News::where('category_id', 7)->latest()->take(4)->get(),
             'entertainment' => News::where('category_id', 8)->latest()->take(4)->get(),
+            'gallery' => Gallery::latest()->take(10)->get(),
         ];
         return view('frontend.index', $data);
     }

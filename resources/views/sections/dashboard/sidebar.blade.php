@@ -28,8 +28,23 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('dashboard.ads.index') }}">
+                <a href="{{ route('dashboard.photo.gallery.index') }}">
                     <div class="parent-icon"><i class="bi bi-images"></i>
+                    </div>
+                    <div class="menu-title">Photo Gallery</div>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('dashboard.comments.index') }}">
+                    <div class="parent-icon"><i class="bi bi-camera-reels"></i>
+                    </div>
+                    <div class="menu-title">Video Gallery</div>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ route('dashboard.ads.index') }}">
+                    <div class="parent-icon"><i class="bi bi-image"></i>
                     </div>
                     <div class="menu-title">Ads</div>
                 </a>

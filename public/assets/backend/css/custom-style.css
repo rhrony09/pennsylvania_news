@@ -262,3 +262,20 @@ label sup {
     color: #fff;
     line-height: 1.5;
 }
+
+.gallery-image {
+    position: relative;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.gallery-image img {
+    border-radius: 5px;
+    width: 100%;
+}
+
+.gallery-image button {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}

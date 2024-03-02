@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\PhotoGalleryController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SocialMediaController;
 use App\Http\Controllers\UsersController;
@@ -22,6 +23,7 @@ Route::get('news/{slug}', [FrontendController::class, 'news'])->name('news');
 Route::post('news/comment', [FrontendController::class, 'comment'])->name('comment');
 Route::get('ads', [FrontendController::class, 'ads'])->name('ads');
 Route::get('archives', [FrontendController::class, 'archives'])->name('archives');
+Route::get('photo-gallery', [FrontendController::class, 'photo_gallery'])->name('photo.gallery');
 
 //Admin Panel
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboard.'], function () {
@@ -41,6 +43,12 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     Route::get('news/edit/{news}', [NewsController::class, 'edit'])->name('news.edit');
     Route::post('news/update', [NewsController::class, 'update'])->name('news.update');
     Route::get('news/delete/{news}', [NewsController::class, 'delete'])->name('news.delete');
+
+    //Photo Gallery
+    Route::get('photo-gallery', [PhotoGalleryController::class, 'index'])->name('photo.gallery.index');
+    Route::get('photo-gallery/create', [PhotoGalleryController::class, 'create'])->name('photo.gallery.create');
+    Route::post('photo-gallery/store', [PhotoGalleryController::class, 'store'])->name('photo.gallery.store');
+    Route::get('photo-gallery/delete/{gallery}', [PhotoGalleryController::class, 'delete'])->name('photo.gallery.delete');
 
     //Comments
     Route::get('comments', [CommentController::class, 'index'])->name('comments.index');
