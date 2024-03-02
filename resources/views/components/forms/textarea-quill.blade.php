@@ -1,5 +1,5 @@
 <div {{ $attributes->merge(['class' => 'mt-3']) }} id="{{ $fieldId }}-area">
-    <x-forms.label :fieldId="$fieldId" fieldRequired="{{ isset($fieldRequired) ? $fieldRequired : '' }}"></x-forms.label>
+    <x-forms.label :fieldId="$fieldId" :fieldLabel="$fieldLabel" fieldRequired="{{ isset($fieldRequired) ? $fieldRequired : '' }}"></x-forms.label>
     <div class="quill-editor" id="{{ $fieldId }}-quill">{!! isset($fieldValue) ? $fieldValue : '' !!}</div>
     <textarea class="d-none" name="{{ $fieldName }}" id="{{ $fieldId }}">{{ isset($fieldValue) ? $fieldValue : '' }}</textarea>
 </div>
