@@ -2,18 +2,32 @@
     <div class="DFooterTop">
         <div class="row">
             <div class="col-sm-4">
-                <p>সম্পাদক ও প্রকাশক: {{ $settings->editor_publisher }}</p>
-                <p>প্রধান সম্পাদক: {{ $settings->chief_editor }}</p>
-
+                @if ($settings->editor_publisher)
+                    <p>সম্পাদক ও প্রকাশক: {{ $settings->editor_publisher }}</p>
+                @endif
+                @if ($settings->chief_editor)
+                    <p>প্রধান সম্পাদক: {{ $settings->chief_editor }}</p>
+                @endif
             </div>
             <div class="col-sm-4">
-                <p>ঠিকানা: {{ $settings->address }}</p>
-
+                @if ($settings->address)
+                    <div style="display: flex">
+                        <p>ঠিকানা:</p>
+                        &nbsp;
+                        <p>{{ $settings->address }}</p>
+                    </div>
+                @endif
             </div>
             <div class="col-sm-4">
-                <p>ফোন: {{ $settings->phone }}</p>
-                <p>ফ্যাক্স: {{ $settings->fax }}</p>
-                <p>ই-মেইল : <a href="mailto:{{ $settings->email }}">{{ $settings->email }}</a></p>
+                @if ($settings->phone)
+                    <p>ফোন: {{ $settings->phone }}</p>
+                @endif
+                @if ($settings->fax)
+                    <p>ফ্যাক্স: {{ $settings->fax }}</p>
+                @endif
+                @if ($settings->email)
+                    <p>ই-মেইল : <a href="mailto:{{ $settings->email }}">{{ $settings->email }}</a></p>
+                @endif
             </div>
         </div>
     </div>
