@@ -15,6 +15,7 @@ class Alert extends Component {
      * Create a new component instance.
      */
     public function __construct($icon = '', $text = '') {
+        dd('here');
         $this->icon = $icon;
         $this->text = $text;
     }
