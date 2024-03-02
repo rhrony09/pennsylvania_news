@@ -1,7 +1,8 @@
 <li>
-    <button {{ $attributes->merge(['class' => 'dropdown-item']) }} @if ($id != '') data-id="{{ $id }}" @endif>
-        @if ($icon != '')
+    <button {{ $attributes->merge(['class' => 'dropdown-item']) }}>
+        @isset($icon)
             <i class="fa fa-{{ $icon }}"></i>
-        @endif {{ $slot }}
+            {{ $slot }}
+        @endisset
     </button>
 </li>
