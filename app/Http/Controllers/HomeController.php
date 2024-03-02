@@ -24,9 +24,6 @@ class HomeController extends Controller {
     }
 
     public function debug() {
-        for ($i = 8; $i <= 36; $i++) {
-
-            echo '.f-' . $i . '{font-size: ' . $i . 'px !important;} <br>';
-        }
+        return view('welcome');
     }
 }
