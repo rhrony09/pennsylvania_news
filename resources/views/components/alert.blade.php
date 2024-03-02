@@ -1,9 +1,9 @@
 @props(['icon', 'text'])
 
 <div {{ $attributes->merge(['class' => 'alert alert-primary d-flex align-items-center alert-dismissible fade show']) }} role="alert">
-    @if ($icon)
+    @isset($icon)
         <div class="me-2"><i class="fa fa-{{ $icon }}"></i></div>
-    @endif
+    @endisset
     <div>
         {{ $text }}
     </div>
