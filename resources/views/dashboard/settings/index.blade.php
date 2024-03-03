@@ -115,19 +115,19 @@
                 <div class="row mb-3">
                     <div class="col-md-4 mb-3">
                         <label for="logo_dark" class="form-label">Logo (Dark Verison)</label>
-                        <img class="logo-preview" id="logo-dark" src="{{ asset("uploads/logos/$settings->logo_dark") }}" alt="{{ $settings->logo_dark }}">
+                        <img class="logo-preview" id="logo-dark" src="{{ asset("uploads/logos/$settings->logo_dark") . '?v=' . now()->timestamp }}" alt="{{ $settings->logo_dark }}">
                         <input type="file" class="form-control" id="logo_dark" name="logo_dark" onchange="document.getElementById('logo-dark').src = window.URL.createObjectURL(this.files[0])" accept="image/png">
                         <div class="error"></div>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="logo_light" class="form-label">Logo (Light Verison)</label>
-                        <img class="logo-preview" id="logo-light" style="background: #0007" src="{{ asset("uploads/logos/$settings->logo_light") }}" alt="{{ $settings->logo_light }}">
+                        <img class="logo-preview" id="logo-light" style="background: #0007" src="{{ asset("uploads/logos/$settings->logo_light") . '?v=' . now()->timestamp }}" alt="{{ $settings->logo_light }}">
                         <input type="file" class="form-control" id="logo_light" name="logo_light" onchange="document.getElementById('logo-light').src = window.URL.createObjectURL(this.files[0])" accept="image/png">
                         <div class="error"></div>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="favicon" class="form-label">Favicon</label>
-                        <img class="favicon-preview" id="favicon-img" src="{{ asset("uploads/logos/$settings->favicon") }}" alt="{{ $settings->favicon }}">
+                        <img class="favicon-preview" id="favicon-img" src="{{ asset("uploads/logos/$settings->favicon") . '?v=' . now()->timestamp }}" alt="{{ $settings->favicon }}">
                         <input type="file" class="form-control" id="favicon" name="favicon" onchange="document.getElementById('favicon-img').src = window.URL.createObjectURL(this.files[0])" accept="image/png">
                         <div class="error"></div>
                     </div>

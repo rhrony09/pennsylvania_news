@@ -37,7 +37,7 @@
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <a class="btn btn-success btnCatName" href="{{ route('news', $news->category->slug) }}">{{ $news->category->name }}</a>
-                                        <a href="{{ route('news', $news->slug) }}"><img src="{{ asset('uploads/news/' . $news->featured_image) }}" alt="{{ $news->title }}" title="{{ $news->title }}" class="img-responsive img100"></a>
+                                        <a href="{{ route('news', $news->slug) }}"><img src="{{ asset('uploads/news/' . $news->featured_image) . '?v=' . now()->timestamp }}" alt="{{ $news->title }}" title="{{ $news->title }}" class="img-responsive img100"></a>
                                     </div>
                                     <div class="col-sm-8">
                                         <p><a href="{{ route('news', $news->slug) }}"></a></p>

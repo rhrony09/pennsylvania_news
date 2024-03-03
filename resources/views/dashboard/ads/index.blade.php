@@ -22,7 +22,7 @@
                     @foreach ($ads->sortByDesc('created_at') as $ad)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td><img class="ads-thumbnail" src="{{ asset('uploads/ads/' . $ad->image) }}" alt="ad"></td>
+                            <td><img class="ads-thumbnail" src="{{ asset('uploads/ads/' . $ad->image) . '?v=' . now()->timestamp }}" alt="ad"></td>
                             <td>{{ $ad->size }}</td>
                             <td>
                                 <select class="form-select status border border-{{ $ad->status == 'Published' ? 'success' : 'danger' }}" data-id="{{ $ad->id }}">

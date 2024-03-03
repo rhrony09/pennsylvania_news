@@ -12,8 +12,8 @@
         </div>
         <div class="row DMarginBottom20">
             @forelse ($gallery as $image)
-                <a href="{{ asset('uploads/photo-gallery/' . $image->image) }}" data-toggle="lightbox" data-gallery="ছবি গ্যালারি" data-title="ছবি গ্যালারি" class="col-sm-3">
-                    <img src="{{ asset('uploads/photo-gallery/' . $image->image) }}" class="img-thumbnail">
+                <a href="{{ asset('uploads/photo-gallery/' . $image->image) . '?v=' . now()->timestamp }}" data-toggle="lightbox" data-gallery="ছবি গ্যালারি" data-title="ছবি গ্যালারি" class="col-sm-3">
+                    <img src="{{ asset('uploads/photo-gallery/' . $image->image) . '?v=' . now()->timestamp }}" class="img-thumbnail">
                 </a>
             @empty
                 <div class="col-sm-12">

@@ -11,7 +11,7 @@
                 @forelse ($galleries as $gallery)
                     <div class="col-md-3">
                         <div class="gallery-image shadow">
-                            <img src="{{ asset('uploads/photo-gallery/' . $gallery->image) }}">
+                            <img src="{{ asset('uploads/photo-gallery/' . $gallery->image) . '?v=' . now()->timestamp }}">
                             <button type="button" class="btn btn-danger delete-gallery" data-id="{{ $gallery->id }}"><i class="fas fa-trash"></i></button>
                         </div>
                     </div>

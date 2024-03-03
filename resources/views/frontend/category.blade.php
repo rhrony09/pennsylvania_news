@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="col-sm-7">
                                     <a href="{{ route('news', $news->slug) }}">
-                                        <img src="{{ asset('uploads/news/' . $news->featured_image) }}" alt="{{ $news->title }}" title="{{ $news->title }}" class="img-responsive img100">
+                                        <img src="{{ asset('uploads/news/' . $news->featured_image) . '?v=' . now()->timestamp }}" alt="{{ $news->title }}" title="{{ $news->title }}" class="img-responsive img100">
                                     </a>
                                 </div>
                             </div>
@@ -40,7 +40,7 @@
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <a href="{{ route('news', $news->slug) }}">
-                                            <img src="{{ asset('uploads/news/' . $news->featured_image) }}" alt="{{ $news->title }}" title="{{ $news->title }}" class="img-responsive img100">
+                                            <img src="{{ asset('uploads/news/' . $news->featured_image) . '?v=' . now()->timestamp }}" alt="{{ $news->title }}" title="{{ $news->title }}" class="img-responsive img100">
                                         </a>
                                     </div>
                                     <div class="col-sm-8">

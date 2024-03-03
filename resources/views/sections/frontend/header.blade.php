@@ -28,7 +28,7 @@
 
     <div class="row">
         <div class="col-sm-4">
-            <div class="DLogo"><a href="{{ route('index') }}"><img src="{{ asset("uploads/logos/$settings->logo_dark") }}" alt="{{ $settings->site_name }}" title="{{ $settings->site_name }}" class="img-responsive"></a></div>
+            <div class="DLogo"><a href="{{ route('index') }}"><img src="{{ asset("uploads/logos/$settings->logo_dark") . '?v=' . now()->timestamp }}" alt="{{ $settings->site_name }}" title="{{ $settings->site_name }}" class="img-responsive"></a></div>
         </div>
     </div>
 

@@ -15,7 +15,7 @@
                 <div class="col-sm-3">
                     <div class="DVideoGalleryList">
                         <a href="{{ route('video.gallery.show', $video->slug) }}">
-                            <img src="{{ asset('uploads/video-gallery/' . $video->thumbnail) }}" alt="{{ $video->title }}" title="{{ $video->title }}" class="img-responsive img100">
+                            <img src="{{ asset('uploads/video-gallery/' . $video->thumbnail) . '?v=' . now()->timestamp }}" alt="{{ $video->title }}" title="{{ $video->title }}" class="img-responsive img100">
                             <p>{{ $video->title }}</p>
                         </a>
                     </div>

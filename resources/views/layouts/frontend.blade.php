@@ -29,8 +29,8 @@
     </style>
 
     <link rel="canonical" href="{{ url()->current() }}">
-    <link type="image/x-icon" rel="shortcut icon" href="{{ asset("uploads/logos/$settings->favicon") }}">
-    <link type="image/x-icon" rel="icon" href="{{ asset("uploads/logos/$settings->favicon") }}">
+    <link type="image/x-icon" rel="shortcut icon" href="{{ asset("uploads/logos/$settings->favicon") . '?v=' . now()->timestamp }}">
+    <link type="image/x-icon" rel="icon" href="{{ asset("uploads/logos/$settings->favicon") . '?v=' . now()->timestamp }}">
 
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/bootstrap/3.3.7/css/bootstrap.min.css') }}">
     <link href="{{ asset('assets/vendor/font-awsome-6.5.1-pro/css/all.css') }}" rel="stylesheet">

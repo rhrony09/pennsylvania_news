@@ -23,7 +23,7 @@
                     @foreach ($all_news as $news)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td><img class="news-thumbnail" src="{{ asset('uploads/news/' . $news->featured_image) }}" alt="{{ $news->title }}"></td>
+                            <td><img class="news-thumbnail" src="{{ asset('uploads/news/' . $news->featured_image) . '?v=' . now()->timestamp }}" alt="{{ $news->title }}"></td>
                             <td class="text-start">{{ $news->title }}</td>
                             <td>{{ $news->category ? $news->category->name : '--' }}</td>
                             <td>{{ $news->user ? $news->user->name : '--' }}</td>

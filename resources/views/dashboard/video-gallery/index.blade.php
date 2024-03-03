@@ -13,7 +13,7 @@
                         <div class="gallery-video shadow">
                             <div class="thumb">
                                 <img src="{{ asset('uploads/video-gallery/' . $gallery->thumbnail) }}">
-                                <a href="{{ url('https://www.youtube.com/watch?v=' . $gallery->video_link) }}" class="btn btn-danger" target="_blank"><i class="fa-solid fa-play"></i></a>
+                                <a href="{{ url('https://www.youtube.com/watch?v=' . $gallery->video_link) . '?v=' . now()->timestamp }}" class="btn btn-danger" target="_blank"><i class="fa-solid fa-play"></i></a>
                             </div>
                             <p class="my-2">{{ $gallery->title }}</p>
                             <button type="button" class="btn btn-danger btn-sm delete-gallery" data-id="{{ $gallery->id }}"><i class="fas fa-trash"></i> Delete</button>
