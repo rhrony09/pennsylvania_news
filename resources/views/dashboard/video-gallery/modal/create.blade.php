@@ -1,6 +1,6 @@
 <form id="gallery-form-modal">
     <div class="modal-header">
-        <h5 class="modal-title">Add New Photo to the Gallery</h5>
+        <h5 class="modal-title">Add New Video to the Gallery</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
 
@@ -9,7 +9,9 @@
         @csrf
         <div class="row">
             <div class="col-md-12">
-                <x-forms.file fieldId="image" fieldLabel="Upload a Image" fieldName="image" allowedFileExtensions="jpg jpeg png" fieldHelp="Supported: JPG & PNG."></x-forms.file>
+                <x-forms.text fieldId="title" fieldLabel="Title" fieldName="title"></x-forms.text>
+                <x-forms.text fieldId="video_link" fieldLabel="Video Link" fieldName="video_link" fieldHelp="Supported: Youtube Link Only"></x-forms.text>
+                <x-forms.file fieldId="thumbnail" fieldLabel="Upload a Thumbail" fieldName="thumbnail" allowedFileExtensions="jpg jpeg png" fieldHelp="Supported: JPG & PNG."></x-forms.file>
             </div>
         </div>
     </div>
@@ -27,7 +29,7 @@
         $('#form-errors-modal').html('');
         $.ajax({
             type: 'POST',
-            url: "{{ route('dashboard.photo.gallery.store') }}",
+            url: "{{ route('dashboard.video.gallery.store') }}",
             disableButton: true,
             data: new FormData(this),
             dataType: 'json',

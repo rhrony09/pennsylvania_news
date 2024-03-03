@@ -69,21 +69,23 @@
     </div>
     <!-- ad end -->
 
-    <section>
-        <div class="row DMarginTop20">
-            <div class="col-sm-12 DMoreNewsImg">
-                <div class="DHeadTop border_bottom">এই বিভাগের জনপ্রিয়</div>
-                @forelse ($related_popular_news as $news)
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <a href="{{ route('news', $news->slug) }}"><img src="{{ asset('uploads/news/' . $news->featured_image) }}" alt="{{ $news->title }}" title="{{ $news->title }}" class="img-responsive img100"></a>
+    @if (Route::currentRouteName() != 'video.gallery.show')
+        <section>
+            <div class="row DMarginTop20">
+                <div class="col-sm-12 DMoreNewsImg">
+                    <div class="DHeadTop border_bottom">এই বিভাগের জনপ্রিয়</div>
+                    @forelse ($related_popular_news as $news)
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <a href="{{ route('news', $news->slug) }}"><img src="{{ asset('uploads/news/' . $news->featured_image) }}" alt="{{ $news->title }}" title="{{ $news->title }}" class="img-responsive img100"></a>
+                            </div>
+                            <div class="col-sm-8"><a href="{{ route('news', $news->slug) }}">{{ $news->title }}</a></div>
                         </div>
-                        <div class="col-sm-8"><a href="{{ route('news', $news->slug) }}">{{ $news->title }}</a></div>
-                    </div>
-                @empty
-                    <p>দুঃখিত, কোনো নিউজ পাওয়া যায়নি।</p>
-                @endforelse
+                    @empty
+                        <p>দুঃখিত, কোনো নিউজ পাওয়া যায়নি।</p>
+                    @endforelse
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 </div>

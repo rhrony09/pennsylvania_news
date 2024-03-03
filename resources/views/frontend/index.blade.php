@@ -116,7 +116,7 @@
                             @foreach ($pennsylvania->take(1) as $news)
                                 <a href="{{ route('news', $news->slug) }}">
                                     <img src="{{ asset('uploads/news/' . $news->featured_image) }}" alt="{{ $news->title }}" title="{{ $news->title }}" class="img-responsive img100">
-                                    <p>{{ $national->first()->title }}</p>
+                                    <p>{{ $pennsylvania->first()->title }}</p>
                                 </a>
                                 <div class="DCatMainNewsDetails">
                                     <p>{!! limitString($news->content) !!}</p>
@@ -336,66 +336,50 @@
             <div class="border_bottom"><a href="{{ route('photo.gallery') }}"><span class="DCategoryTitle">ছবি গ্যালারি</span></a></div>
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="DPhotoGallery">
-                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner" role="listbox">
-                                @foreach ($gallery as $image)
-                                    <div class="item {{ $loop->iteration == 1 ? 'active' : '' }}">
-                                        <img class="img-responsive" src="{{ asset('uploads/photo-gallery/' . $image->image) }}">
-                                    </div>
-                                @endforeach
-                            </div>
-                            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-                    </div>
-                    <a href="{{ route('photo.gallery') }}" class="btn btn-primary gallery-btn">সব ছবি দেখুন</a>
+                    @forelse ($gallery as $image)
+                        <a href="{{ asset('uploads/photo-gallery/' . $image->image) }}" data-toggle="lightbox" data-gallery="ছবি গ্যালারি" data-title="ছবি গ্যালারি" class="col-sm-3">
+                            <img src="{{ asset('uploads/photo-gallery/' . $image->image) }}" class="img-thumbnail">
+                        </a>
+                    @empty
+                        <h3>দুঃখিত, কোনো ছবি পাওয়া যায়নি।</h3>
+                    @endforelse
                 </div>
             </div>
+            <a href="{{ route('photo.gallery') }}" class="btn btn-primary gallery-btn">সব ছবি দেখুন</a>
         </div>
 
         <div class="DCategoryNews DMarginBottom20">
-            <div class="border_bottom"><a href="https://www.ajkertangail.com/videogallery"><span class="DCategoryTitle">ভিডিও গ্যালারি</span></a></div>
+            <div class="border_bottom"><a href="{{ route('video.gallery') }}"><span class="DCategoryTitle">ভিডিও গ্যালারি</span></a></div>
             <div class="row DVideoGallery">
-                <div class="col-sm-3">
-                    <div class="DVideoGalleryList">
-                        <a href="https://www.ajkertangail.com/videogallery/index.php?videoinfo=61">
-                            <img src="https://img.youtube.com/vi/zuDt7yIrJlg/0.jpg" alt="বাংলাদেশ ও ঘানা ব্যবসা-বাণিজ্য বাড়াতে সম্মত" title="বাংলাদেশ ও ঘানা ব্যবসা-বাণিজ্য বাড়াতে সম্মত" class="img-responsive img100">
-                            <p>বাংলাদেশ ও ঘানা ব্যবসা-বাণিজ্য বাড়াতে সম্মত</p>
-                        </a>
+                @forelse ($video_gallery as $video)
+                    <div class="col-sm-3">
+                        <div class="DVideoGalleryList">
+                            <a href="{{ route('video.gallery.show', $video->slug) }}">
+                                <img src="{{ asset('uploads/video-gallery/' . $video->thumbnail) }}" alt="{{ $video->title }}" title="{{ $video->title }}" class="img-responsive img100">
+                                <p>{{ $video->title }}</p>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="DVideoGalleryList">
-                        <a href="https://www.ajkertangail.com/videogallery/index.php?videoinfo=60">
-                            <img src="https://img.youtube.com/vi/3KEXM6Z2c00/0.jpg" alt="গাজায় যা ঘটছে তা গণহত্যা, আনাদোলুকে প্রধানমন্ত্রী" title="গাজায় যা ঘটছে তা গণহত্যা, আনাদোলুকে প্রধানমন্ত্রী" class="img-responsive img100">
-                            <p>গাজায় যা ঘটছে তা গণহত্যা, আনাদোলুকে প্রধানমন্ত্রী</p>
-                        </a>
+                @empty
+                    <div class="col-sm-12">
+                        <h3>দুঃখিত, কোনো ভিডিও পাওয়া যায়নি।</h3>
                     </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="DVideoGalleryList">
-                        <a href="https://www.ajkertangail.com/videogallery/index.php?videoinfo=59">
-                            <img src="https://img.youtube.com/vi/2MKYOchRL2U/0.jpg" alt="মিয়ানমার সীমান্তে বিজিবির ফোর্স বাড়িয়েছি, অস্ত্র নিয়ে ঢোকার সুযোগ নেই" title="মিয়ানমার সীমান্তে বিজিবির ফোর্স বাড়িয়েছি, অস্ত্র নিয়ে ঢোকার সুযোগ নেই" class="img-responsive img100">
-                            <p>মিয়ানমার সীমান্তে বিজিবির ফোর্স বাড়িয়েছি, অস্ত্র নিয়ে ঢোকার সুযোগ নেই</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="DVideoGalleryList">
-                        <a href="https://www.ajkertangail.com/videogallery/index.php?videoinfo=58">
-                            <img src="https://img.youtube.com/vi/jYPz6j0-FXM/0.jpg" alt="বৈধ উপায়ে আরও বাংলাদেশি নিতে আগ্রহী ইতালি" title="বৈধ উপায়ে আরও বাংলাদেশি নিতে আগ্রহী ইতালি" class="img-responsive img100">
-                            <p>বৈধ উপায়ে আরও বাংলাদেশি নিতে আগ্রহী ইতালি</p>
-                        </a>
-                    </div>
-                </div>
+                @endforelse
             </div>
         </div>
     </main>
 @endsection
+
+@push('style')
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/ekko-lightbox/ekko-lightbox.min.css') }}">
+@endpush
+
+@push('script')
+    <script src="{{ asset('assets/frontend/ekko-lightbox/ekko-lightbox.min.js') }}"></script>
+    <script>
+        $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+            event.preventDefault();
+            $(this).ekkoLightbox();
+        });
+    </script>
+@endpush

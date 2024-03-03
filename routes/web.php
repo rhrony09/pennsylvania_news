@@ -11,6 +11,7 @@ use App\Http\Controllers\PhotoGalleryController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SocialMediaController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\VideoGalleryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,8 @@ Route::post('news/comment', [FrontendController::class, 'comment'])->name('comme
 Route::get('ads', [FrontendController::class, 'ads'])->name('ads');
 Route::get('archives', [FrontendController::class, 'archives'])->name('archives');
 Route::get('photo-gallery', [FrontendController::class, 'photo_gallery'])->name('photo.gallery');
+Route::get('video-gallery', [FrontendController::class, 'video_gallery'])->name('video.gallery');
+Route::get('video-gallery/{slug}', [FrontendController::class, 'video_gallery_show'])->name('video.gallery.show');
 
 //Admin Panel
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboard.'], function () {
@@ -49,6 +52,12 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     Route::get('photo-gallery/create', [PhotoGalleryController::class, 'create'])->name('photo.gallery.create');
     Route::post('photo-gallery/store', [PhotoGalleryController::class, 'store'])->name('photo.gallery.store');
     Route::get('photo-gallery/delete/{gallery}', [PhotoGalleryController::class, 'delete'])->name('photo.gallery.delete');
+
+    //Video Gallery
+    Route::get('video-gallery', [VideoGalleryController::class, 'index'])->name('video.gallery.index');
+    Route::get('video-gallery/create', [VideoGalleryController::class, 'create'])->name('video.gallery.create');
+    Route::post('video-gallery/store', [VideoGalleryController::class, 'store'])->name('video.gallery.store');
+    Route::get('video-gallery/delete/{gallery}', [VideoGalleryController::class, 'delete'])->name('video.gallery.delete');
 
     //Comments
     Route::get('comments', [CommentController::class, 'index'])->name('comments.index');

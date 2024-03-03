@@ -24,6 +24,8 @@ class HomeController extends Controller {
     }
 
     public function debug() {
-        return view('welcome');
+        $regex_pattern = '/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/';
+
+        return preg_match($regex_pattern, 'https://www.google.com');
     }
 }

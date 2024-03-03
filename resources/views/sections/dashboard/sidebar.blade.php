@@ -35,7 +35,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('dashboard.comments.index') }}">
+                <a href="{{ route('dashboard.video.gallery.index') }}">
                     <div class="parent-icon"><i class="bi bi-camera-reels"></i>
                     </div>
                     <div class="menu-title">Video Gallery</div>

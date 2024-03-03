@@ -77,6 +77,10 @@ p {
 	margin-bottom: 20px;
 }
 
+.DMarginBottom30 {
+	margin-bottom: 20px;
+}
+
 .DMarginLeft10 {
 	margin-left: 10px;
 }
@@ -262,12 +266,12 @@ p {
 .card button.btn-primary,
 .gallery-btn {
 	margin-top: 10px;
-	background-color: var(--rh-primary-color) !important;
+	background-color: var(--rh-primary-color);
 }
 
 .card button.btn-primary:hover,
 .gallery-btn:hover {
-	background-color: var(--rh-primary-accent-color) !important;
+	background-color: var(--rh-primary-accent-color);
 }
 
 .alert ul {
@@ -869,8 +873,8 @@ p {
 }
 
 .DVideoGalleryList p {
-	font-size: 22px;
-	line-height: 26px;
+	font-size: 18px;
+	line-height: 1em;
 }
 
 .DHeaderAdd {

@@ -13,6 +13,7 @@ class PhotoGalleryController extends Controller {
     public function index() {
         $data = [
             'galleries' => Gallery::latest()->get(),
+            'page_title' => 'Photo Gallery'
         ];
         return view('dashboard.photo-gallery.index', $data);
     }

@@ -263,13 +263,15 @@ label sup {
     line-height: 1.5;
 }
 
-.gallery-image {
+.gallery-image,
+.gallery-video {
     position: relative;
     padding: 10px;
     border-radius: 5px;
 }
 
-.gallery-image img {
+.gallery-image img,
+.gallery-video img {
     border-radius: 5px;
     width: 100%;
 }
@@ -278,4 +280,17 @@ label sup {
     position: absolute;
     right: 20px;
     bottom: 20px;
+}
+
+.gallery-video .thumb {
+    position: relative;
+}
+
+.gallery-video .thumb a {
+    position: absolute;
+    right: 50%;
+    bottom: 50%;
+    transform: translate(50%, 50%);
+    border-radius: 50%;
+    opacity: 0.8;
 }

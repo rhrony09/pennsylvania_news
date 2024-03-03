@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Gallery;
 use App\Models\News;
+use App\Models\VideoGallery;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller {
@@ -22,7 +23,8 @@ class FrontendController extends Controller {
             'sports' => News::where('category_id', 6)->latest()->take(5)->get(),
             'international' => News::where('category_id', 7)->latest()->take(4)->get(),
             'entertainment' => News::where('category_id', 8)->latest()->take(4)->get(),
-            'gallery' => Gallery::latest()->take(10)->get(),
+            'gallery' => Gallery::inRandomOrder()->take(8)->get(),
+            'video_gallery' => VideoGallery::latest()->take(4)->get(),
         ];
         return view('frontend.index', $data);
     }
@@ -89,6 +91,35 @@ class FrontendController extends Controller {
     }
 
     public function ads() {
-        return 'yes';
+        $data = [
+            'gallery' => Gallery::latest()->paginate(32),
+            'page_title' => 'বিজ্ঞাপন',
+        ];
+        return view('frontend.ads', $data);
+    }
+
+    public function photo_gallery() {
+        $data = [
+            'gallery' => Gallery::latest()->paginate(32),
+            'page_title' => 'ছবি গ্যালারি',
+        ];
+        return view('frontend.photo-gallery', $data);
+    }
+
+    public function video_gallery() {
+        $data = [
+            'gallery' => VideoGallery::latest()->paginate(32),
+            'page_title' => 'ভিডিও গ্যালারি',
+        ];
+        return view('frontend.video-gallery', $data);
+    }
+
+    public function video_gallery_show($slug) {
+        $video =  VideoGallery::where('slug', $slug)->first();
+        $data = [
+            'video' => $video,
+            'page_title' => $video->title,
+        ];
+        return view('frontend.single-video', $data);
     }
 }

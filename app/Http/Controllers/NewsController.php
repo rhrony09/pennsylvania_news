@@ -46,6 +46,7 @@ class NewsController extends Controller {
                 'slug' => make_slug($request->title),
                 'category_id' => $request->category_id,
                 'user_id' => auth()->user()->id,
+                'featured_image' => 'default.jpg',
             ]);
 
             if ($request->has('featured_image')) {
@@ -85,7 +86,7 @@ class NewsController extends Controller {
                 'title' => $request->title,
                 'content' => $request->content,
                 'slug' => make_slug($request->title),
-                'category_id' => $request->category_id
+                'category_id' => $request->category_id,
             ]);
 
             if ($request->has('featured_image')) {
@@ -93,7 +94,10 @@ class NewsController extends Controller {
                 $image_name = $news->id . '-' . uniqid() . '.' . $extension;
                 $image_path = 'uploads/news/' . $image_name;
 
-                unlink('uploads/news/' . $news->featured_image);
+                if ($news->featured_image != 'default.jpg') {
+                    unlink('uploads/news/' . $news->featured_image);
+                }
+
                 Image::make($request->featured_image)->fit(1000, 560)->save(public_path($image_path));
 
                 $news->update([

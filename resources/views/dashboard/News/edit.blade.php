@@ -23,7 +23,7 @@
                         <x-forms.textarea-quill fieldId="content" fieldLabel="News Content" fieldName="content" :fieldRequired="true" fieldValue="{!! $news->content !!}"></x-forms.textarea-quill>
                     </div>
                     <div class="col-md-12">
-                        <x-forms.file fieldId="featured_image" fieldLabel="Upload a Featured Image" fieldName="featured_image" allowedFileExtensions="jpg jpeg png" fieldHelp="Supported: JPG & PNG. Recommended Size: 1000x560px" fieldValue="{{ asset('uploads/news/' . $news->featured_image) }}"></x-forms.file>
+                        <x-forms.file fieldId="featured_image" fieldLabel="Upload a Featured Image" fieldName="featured_image" allowedFileExtensions="jpg jpeg png" fieldHelp="Supported: JPG & PNG. Recommended Size: 1000x560px" fieldValue="{{ $news->featured_image ? asset('uploads/news/' . $news->featured_image) : '' }}"></x-forms.file>
                     </div>
                     <div class="col-md-12">
                         <x-button icon="paper-plane" type="submit">Update</x-button>
