@@ -14,6 +14,7 @@
 
     <meta property="og:site_name" content="{{ $settings->site_name }}">
     <meta property="og:title" content="{{ isset($page_title) ? $page_title . ' | ' . $settings->site_name : $settings->site_name . ' | ' . $settings->site_tagline }}">
+    <meta property="og:description" content="{{ Route::currentRouteName() == 'news' ? strip_tags(html_entity_decode(limitString($news->content, 160))) : $settings->site_tagline }}">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="article">
     <meta property="og:image" content="{{ Route::currentRouteName() == 'news' ? asset('uploads/news/' . $news->featured_image) : asset('uploads/news/default.jpg') . '?v=' . now()->timestamp }}">
