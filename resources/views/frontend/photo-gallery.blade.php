@@ -10,14 +10,16 @@
                 </ol>
             </div>
         </div>
-        <div class="row DMarginBottom20">
+        <div class="row DMarginBottom20 DVideoGallery">
             @forelse ($gallery as $image)
-                <a href="{{ asset('uploads/photo-gallery/' . $image->image) . '?v=' . now()->timestamp }}" data-toggle="lightbox" data-gallery="ছবি গ্যালারি" data-title="ছবি গ্যালারি" class="col-sm-3">
-                    <img src="{{ asset('uploads/photo-gallery/' . $image->image) . '?v=' . now()->timestamp }}" class="img-thumbnail">
-                </a>
+                <div class="col-sm-3">
+                    <a href="{{ asset('uploads/photo-gallery/' . $image->image) }}" data-toggle="lightbox" data-gallery="ছবি গ্যালারি" data-title="ছবি গ্যালারি">
+                        <img src="{{ asset('uploads/photo-gallery/' . $image->image) . '?v=' . now()->timestamp }}" class="img-thumbnail">
+                    </a>
+                </div>
             @empty
                 <div class="col-sm-12">
-                    <h3 class="DMarginBottom30">দুঃখিত, কোনো ছবি পাওয়া যায়নি।</h3>
+                    <h3>দুঃখিত, কোনো ছবি পাওয়া যায়নি।</h3>
                 </div>
             @endforelse
         </div>

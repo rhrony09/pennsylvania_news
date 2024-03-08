@@ -334,16 +334,18 @@
 
         <div class="DCategoryNews">
             <div class="border_bottom"><a href="{{ route('photo.gallery') }}"><span class="DCategoryTitle">ছবি গ্যালারি</span></a></div>
-            <div class="row">
-                <div class="col-sm-12">
-                    @forelse ($gallery as $image)
-                        <a href="{{ asset('uploads/photo-gallery/' . $image->image) }}" data-toggle="lightbox" data-gallery="ছবি গ্যালারি" data-title="ছবি গ্যালারি" class="col-sm-3">
+            <div class="row DVideoGallery">
+                @forelse ($gallery as $image)
+                    <div class="col-sm-3">
+                        <a href="{{ asset('uploads/photo-gallery/' . $image->image) }}" data-toggle="lightbox" data-gallery="ছবি গ্যালারি" data-title="ছবি গ্যালারি">
                             <img src="{{ asset('uploads/photo-gallery/' . $image->image) . '?v=' . now()->timestamp }}" class="img-thumbnail">
                         </a>
-                    @empty
+                    </div>
+                @empty
+                    <div class="col-sm-12">
                         <h3>দুঃখিত, কোনো ছবি পাওয়া যায়নি।</h3>
-                    @endforelse
-                </div>
+                    </div>
+                @endforelse
             </div>
             <a href="{{ route('photo.gallery') }}" class="btn btn-primary gallery-btn">সব ছবি দেখুন</a>
         </div>
