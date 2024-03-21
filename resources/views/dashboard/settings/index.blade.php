@@ -36,10 +36,17 @@
                                 <div class="error"></div>
                             </div>
                         </div>
-                        <div class="col-lg-12">
+                        <div class="col-lg-6">
                             <div class="mb-3">
-                                <label for="phone" class="form-label">Address</label>
+                                <label for="address" class="form-label">Address</label>
                                 <input type="text" class="form-control" id="address" name="address" value="{{ $settings->address }}" placeholder="Enter address">
+                                <div class="error"></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="mb-3">
+                                <label for="map_link" class="form-label">Address</label>
+                                <input type="text" class="form-control" id="map_link" name="map_link" value="{{ $settings->map_link }}" placeholder="Enter Google Map Link">
                                 <div class="error"></div>
                             </div>
                         </div>
@@ -116,13 +123,13 @@
                     <div class="col-md-4 mb-3">
                         <label for="logo_dark" class="form-label">Logo (Dark Verison)</label>
                         <img class="logo-preview" id="logo-dark" src="{{ asset("uploads/logos/$settings->logo_dark") . '?v=' . now()->timestamp }}" alt="{{ $settings->logo_dark }}">
-                        <input type="file" class="form-control" id="logo_dark" name="logo_dark" onchange="document.getElementById('logo-dark').src = window.URL.createObjectURL(this.files[0])" accept="image/png">
+                        <input type="file" class="form-control" id="logo_dark" name="logo_dark" onchange="document.getElementById('logo-dark').src = window.URL.createObjectURL(this.files[0])" accept=".png, .svg">
                         <div class="error"></div>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="logo_light" class="form-label">Logo (Light Verison)</label>
                         <img class="logo-preview" id="logo-light" style="background: #0007" src="{{ asset("uploads/logos/$settings->logo_light") . '?v=' . now()->timestamp }}" alt="{{ $settings->logo_light }}">
-                        <input type="file" class="form-control" id="logo_light" name="logo_light" onchange="document.getElementById('logo-light').src = window.URL.createObjectURL(this.files[0])" accept="image/png">
+                        <input type="file" class="form-control" id="logo_light" name="logo_light" onchange="document.getElementById('logo-light').src = window.URL.createObjectURL(this.files[0])" accept=".png, .svg">
                         <div class="error"></div>
                     </div>
                     <div class="col-md-4 mb-3">

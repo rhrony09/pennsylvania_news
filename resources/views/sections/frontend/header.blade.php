@@ -1,27 +1,28 @@
 <header>
     <div class="DHeaderTop">
         <div class="row">
-            <div class="col-sm-6 DHeaderDate">
+            <div class="col-sm-4 DHeaderDate">
                 <p>পেনসিলভানিয়া, {{ bangla_date(time(), 'en') }} | {{ bangla_date(time()) }}</p>
             </div>
             <div class="col-sm-3 DHeaderSearch">
                 <form class="navbar-form navbar-right" action="{{ route('archives') }}">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search" name="search" value="{{ request()->search }}" required>
+                        <input type="text" class="form-control" placeholder="অনুসন্ধান করুন" name="search" value="{{ request()->search }}" required>
                         <div class="input-group-btn">
                             <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                         </div>
                     </div>
                 </form>
             </div>
-            <div class="col-sm-3 DSocialLink">
+            <div class="col-sm-5 DSocialLink">
                 <ul>
                     @foreach ($social_medias->whereNotNull('link') as $social_media)
                         <li>
-                            <a href="{{ $social_media->link }}" target="_blank"><i class="fa-brands {{ $social_media->icon }}"></i></a>
+                            <a href="{{ $social_media->link }}" target="_blank" title="{{ $social_media->name }}"><i class="fa-brands {{ $social_media->icon }}"></i></a>
                         </li>
                     @endforeach
                 </ul>
+                <div id="google_translate_element"></div>
             </div>
         </div>
     </div>

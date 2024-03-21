@@ -9,6 +9,8 @@ use App\Models\Ad;
 use Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class AdController extends Controller {
     public function __construct() {
@@ -42,7 +44,7 @@ class AdController extends Controller {
                 $extension = $request->image->getClientOriginalExtension();
                 $image_name = $ad->id . '-' . uniqid() . '.' . $extension;
                 $image_path = 'uploads/ads/' . $image_name;
-                Image::make($request->image)->fit($size[0], $size[1])->save(public_path($image_path));
+                Storage::disk('uploads')->put($image_path, file_get_contents($request->image));
 
                 $ad->update([
                     'image' => $image_name,
@@ -82,8 +84,10 @@ class AdController extends Controller {
             $extension = $request->image->getClientOriginalExtension();
             $image_name = $ad->id . '-' . uniqid() . '.' . $extension;
             $image_path = 'uploads/ads/' . $image_name;
-            unlink('uploads/ads/' . $ad->image);
-            Image::make($request->image)->fit($size[0], $size[1])->save(public_path($image_path));
+            if (File::exists(public_path('/uploads/ads/' . $ad->image))) {
+                File::delete(public_path('/uploads/ads/' . $ad->image));
+            }
+            Storage::disk('uploads')->put($image_path, file_get_contents($request->image));
 
             $ad->update([
                 'image' => $image_name,

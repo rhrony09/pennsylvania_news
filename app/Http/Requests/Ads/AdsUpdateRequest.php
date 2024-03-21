@@ -20,7 +20,7 @@ class AdsUpdateRequest extends FormRequest {
     public function rules(): array {
         $rules = [];
         if (request()->image) {
-            $rules['image'] = 'required|mimes:jpg,jpeg,png';
+            $rules['image'] = 'required|mimes:jpg,jpeg,png,gif';
         }
         return $rules;
     }

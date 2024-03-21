@@ -20,7 +20,7 @@ class AdsStoreRequest extends FormRequest {
     public function rules(): array {
         return [
             'size' => 'required',
-            'image' => 'required|mimes:jpg,jpeg,png',
+            'image' => 'required|mimes:jpg,jpeg,png,gif',
         ];
     }
 }

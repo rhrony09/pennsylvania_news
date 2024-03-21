@@ -29,12 +29,16 @@ class SettingsUpdateRequest extends FormRequest {
             'site_secondary_accent_color' => 'required',
         ];
 
+        if ($this->has('map_link')) {
+            $rules['map_link'] = 'required|url';
+        }
+
         if ($this->has('logo_dark')) {
-            $rules['logo_dark'] = 'required|mimes:png';
+            $rules['logo_dark'] = 'required|mimes:png,svg';
         }
 
         if ($this->has('logo_light')) {
-            $rules['logo_light'] = 'required|mimes:png';
+            $rules['logo_light'] = 'required|mimes:png,svg';
         }
 
         if ($this->has('favicon')) {

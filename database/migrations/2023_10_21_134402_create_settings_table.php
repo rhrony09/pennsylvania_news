@@ -34,6 +34,7 @@ return new class extends Migration {
             'logo_light' => 'logo-light.png',
             'favicon' => 'favicon.png',
             'version' => '1.0.1',
+            'map_link' => 'https://maps.app.goo.gl/agjKhgJ8PqYuQsWb6',
         ];
 
         foreach ($data as $key => $value) {

@@ -8,25 +8,29 @@
                 @if ($settings->chief_editor)
                     <p>প্রধান সম্পাদক: {{ $settings->chief_editor }}</p>
                 @endif
+                <div class="footer-logo">
+                    <img src="{{ asset('uploads/logos/' . $settings->logo_light) . '?v=' . now()->timestamp }}">
+                    <img src="{{ asset('uploads/logos/pbn-tv.svg') }}">
+                </div>
             </div>
             <div class="col-sm-4">
                 @if ($settings->address)
                     <div style="display: flex">
-                        <p>ঠিকানা:</p>
+                        <p><strong>ঠিকানা:</strong></p>
                         &nbsp;
-                        <p>{{ $settings->address }}</p>
+                        <p><a href="{{ $settings->map_link }}" target="_blank">{{ $settings->address }}</a></p>
                     </div>
                 @endif
             </div>
             <div class="col-sm-4">
                 @if ($settings->phone)
-                    <p>ফোন: {{ $settings->phone }}</p>
+                    <p><strong>ফোন:</strong> <a href="tel:{{ $settings->phone }}">{{ $settings->phone }}</a></p>
                 @endif
                 @if ($settings->fax)
-                    <p>ফ্যাক্স: {{ $settings->fax }}</p>
+                    <p><strong>ফ্যাক্স:</strong> {{ $settings->fax }}</p>
                 @endif
                 @if ($settings->email)
-                    <p>ই-মেইল : <a href="mailto:{{ $settings->email }}">{{ $settings->email }}</a></p>
+                    <p><strong>ই-মেইল:</strong> <a href="mailto:{{ $settings->email }}">{{ $settings->email }}</a></p>
                 @endif
             </div>
         </div>

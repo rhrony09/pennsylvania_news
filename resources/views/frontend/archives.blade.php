@@ -54,7 +54,7 @@
                 </div>
 
                 <div class="row MarginTop20">
-                    <div class="col-sm-4">
+                    <div class="col-sm-12">
                         {{ $all_news->links() }}
                     </div>
                 </div>

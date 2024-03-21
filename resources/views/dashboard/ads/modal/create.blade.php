@@ -16,7 +16,7 @@
                 </x-forms.select>
             </div>
             <div class="col-md-12">
-                <x-forms.file fieldId="image" fieldLabel="Upload a Image" fieldName="image" allowedFileExtensions="jpg jpeg png" fieldHelp="Supported: JPG & PNG."></x-forms.file>
+                <x-forms.file fieldId="image" fieldLabel="Upload a Image" fieldName="image" allowedFileExtensions="jpg jpeg png gif" fieldHelp="Supported: JPG, PNG & GIF."></x-forms.file>
             </div>
         </div>
     </div>

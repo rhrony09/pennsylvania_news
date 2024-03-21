@@ -28,7 +28,7 @@
         </div>
         <div class="row MarginTop20">
 
-            <div class="col-sm-4">
+            <div class="col-sm-12">
                 {{ $gallery->links() }}
             </div>
         </div>
