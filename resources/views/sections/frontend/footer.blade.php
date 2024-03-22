@@ -3,10 +3,10 @@
         <div class="row">
             <div class="col-sm-4">
                 @if ($settings->editor_publisher)
-                    <p>সম্পাদক ও প্রকাশক: {{ $settings->editor_publisher }}</p>
+                    <p><strong>সম্পাদক ও প্রকাশক:</strong> {{ $settings->editor_publisher }}</p>
                 @endif
                 @if ($settings->chief_editor)
-                    <p>প্রধান সম্পাদক: {{ $settings->chief_editor }}</p>
+                    <p><strong>প্রধান সম্পাদক:</strong> {{ $settings->chief_editor }}</p>
                 @endif
                 <div class="footer-logo">
                     <img src="{{ asset('uploads/logos/' . $settings->logo_light) . '?v=' . now()->timestamp }}">

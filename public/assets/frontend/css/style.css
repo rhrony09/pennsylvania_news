@@ -1397,6 +1397,10 @@ h3.H3Head {
 		width: 85%;
 		float: left;
 	}
+
+	.footer-logo img {
+		height: 45px;
+	}
 }
 
 @media screen and (max-width:414px) {
@@ -1526,6 +1530,10 @@ h3.H3Head {
 		overflow: hidden;
 		width: 100%
 	}
+
+	.footer-logo {
+		gap: 5px;
+	}
 }
 
 @media screen and (max-width:320px) {
@@ -1596,5 +1604,9 @@ h3.H3Head {
 		min-height: 200px;
 		overflow: hidden;
 		width: 100%
+	}
+
+	.footer-logo img {
+		height: 40px;
 	}
 }
