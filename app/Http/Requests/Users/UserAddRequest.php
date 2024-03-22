@@ -21,7 +21,7 @@ class UserAddRequest extends FormRequest {
         return [
             'name' => 'required',
             'email' => 'required|unique:users,email,',
-            'mobile' => 'required|digits:11|regex:/(01)[0-9]{9}/|unique:users,mobile,',
+            'mobile' => 'required|unique:users,mobile,',
             'password' => 'required|min:8',
             'role' => 'required'
         ];
