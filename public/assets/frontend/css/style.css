@@ -1360,6 +1360,32 @@ h3.H3Head {
 		width: 88%;
 		float: left;
 	}
+
+	.mt-md-10 {
+		padding-top: 10px;
+	}
+
+	.mt-md-20 {
+		padding-top: 20px;
+	}
+
+	.mb-md-10 {
+		padding-bottom: 10px;
+	}
+
+	.mb-md-20 {
+		padding-bottom: 20px;
+	}
+
+	.my-md-10 {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	.my-md-20 {
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
 }
 
 @media screen and (max-width:480px) {
