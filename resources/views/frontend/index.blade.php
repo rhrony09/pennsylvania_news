@@ -368,6 +368,7 @@
                     </div>
                 @endforelse
             </div>
+            <a href="{{ route('video.gallery') }}" class="btn btn-primary gallery-btn">সব ভিডিও দেখুন</a>
         </div>
     </main>
 @endsection
