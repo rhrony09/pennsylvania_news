@@ -45,7 +45,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="mb-3">
-                                <label for="map_link" class="form-label">Address</label>
+                                <label for="map_link" class="form-label">Google Map Link</label>
                                 <input type="text" class="form-control" id="map_link" name="map_link" value="{{ $settings->map_link }}" placeholder="Enter Google Map Link">
                                 <div class="error"></div>
                             </div>

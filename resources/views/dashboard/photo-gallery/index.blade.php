@@ -23,6 +23,11 @@
                     </div>
                 @endforelse
             </div>
+            <div class="row mt-3">
+                <div class="col-sm-12">
+                    {{ $galleries->links() }}
+                </div>
+            </div>
         </div>
     </div>
 @endsection

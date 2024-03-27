@@ -12,7 +12,7 @@ use Image;
 class VideoGalleryController extends Controller {
     public function index() {
         $data = [
-            'galleries' => VideoGallery::latest()->get(),
+            'galleries' => VideoGallery::latest()->paginate(16),
             'page_title' => 'Video Gallery'
         ];
         return view('dashboard.video-gallery.index', $data);

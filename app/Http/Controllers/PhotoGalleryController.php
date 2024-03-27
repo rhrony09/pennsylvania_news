@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 class PhotoGalleryController extends Controller {
     public function index() {
         $data = [
-            'galleries' => Gallery::latest()->get(),
+            'galleries' => Gallery::latest()->paginate(16),
             'page_title' => 'Photo Gallery'
         ];
         return view('dashboard.photo-gallery.index', $data);
