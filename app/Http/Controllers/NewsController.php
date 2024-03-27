@@ -23,7 +23,7 @@ class NewsController extends Controller {
 
     public function index() {
         $data = [
-            'all_news' => News::latest()->get(),
+            'all_news' => News::latest()->with('user')->get(),
             'page_title' => 'News',
         ];
         return view('dashboard.News.index', $data);

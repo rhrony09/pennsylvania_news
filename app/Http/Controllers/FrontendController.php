@@ -73,7 +73,7 @@ class FrontendController extends Controller {
             'page_title' => 'আর্কাইভ',
         ];
 
-        $news =  News::latest()->with('category');
+        $news =  News::latest();
 
         if ($request->category != '') {
             $news->where('category_id', $request->category);
