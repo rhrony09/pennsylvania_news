@@ -195,14 +195,30 @@
 
             $('input.timepicker').timepicker({});
 
+            let myToolbar = [
+                ['bold', 'italic', 'underline', 'strike'],
+                ['blockquote'],
+                [{
+                    'color': []
+                }, {
+                    'background': []
+                }],
+                [{
+                    'font': []
+                }],
+                [{
+                    'align': []
+                }],
+
+                ['clean'],
+                // ['image']
+            ];
+
             let quill = new Quill('.quill-editor', {
                 modules: {
-                    toolbar: [
-                        [{
-                            header: [1, 2, 3, false]
-                        }],
-                        ['bold', 'italic', 'underline', 'link']
-                    ]
+                    toolbar: {
+                        container: myToolbar
+                    }
                 },
                 placeholder: 'Write here...',
                 theme: 'snow' // or 'bubble'

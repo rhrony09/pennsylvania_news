@@ -23,7 +23,7 @@
                             </div>
                             <div class="form-group DMarginLeft10">
                                 <label for="date"> তারিখ:</label>
-                                <input type="text" name="date" id="date" class="form-control" autocomplete="off">
+                                <input type="text" name="date" id="date" class="form-control notranslate" placeholder="MM/DD/YYYY" autocomplete="off">
                             </div>
                             <button type="submit" class="btn btn-primary btnSearch">খুঁজুন</button>
                         </form>
@@ -74,7 +74,8 @@
             changeMonth: true,
             changeYear: true,
         });
-        $("#date").datepicker("option", "dateFormat", "yy-mm-dd");
+        $("#date").datepicker("option", "dateFormat", "mm-dd-yy");
         $("#date").datepicker("setDate", "{{ request()->date }}");
+        $('.ui-datepicker').addClass('notranslate');
     </script>
 @endpush

@@ -37,6 +37,7 @@
     <script>
         $('#news-form').submit(function(e) {
             e.preventDefault();
+            document.getElementById('content').value = document.getElementById('content-quill').children[0].innerHTML.replace('<p><br></p>', '');
 
             $.ajax({
                 type: 'POST',

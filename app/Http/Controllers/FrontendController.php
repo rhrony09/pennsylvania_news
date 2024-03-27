@@ -9,6 +9,7 @@ use App\Models\Comment;
 use App\Models\Gallery;
 use App\Models\News;
 use App\Models\VideoGallery;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller {
@@ -79,7 +80,7 @@ class FrontendController extends Controller {
         }
 
         if ($request->date != '') {
-            $news->whereDate('created_at', $request->date);
+            $news->whereDate('created_at', Carbon::createFromFormat('m-d-Y', $request->date)->format('Y-m-d'));
         }
 
         if ($request->search != '') {
