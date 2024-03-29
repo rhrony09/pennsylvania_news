@@ -211,7 +211,7 @@
                 }],
 
                 ['clean'],
-                // ['image']
+                ['image']
             ];
 
             let quill = new Quill('.quill-editor', {
