@@ -90,7 +90,7 @@
                                     <p>{{ $national->first()->title }}</p>
                                 </a>
                                 <div class="DCatMainNewsDetails">
-                                    <p>{!! limitString($news->content) !!}</p>
+                                    <p>{!! explode('<img', limitString($news->content))[0] !!}</p>
                                 </div>
                             @endforeach
                         </div>
@@ -119,7 +119,7 @@
                                     <p>{{ $pennsylvania->first()->title }}</p>
                                 </a>
                                 <div class="DCatMainNewsDetails">
-                                    <p>{!! limitString($news->content) !!}</p>
+                                    <p>{!! explode('<img', limitString($news->content))[0] !!}</p>
                                 </div>
                             @endforeach
                         </div>
@@ -142,7 +142,16 @@
                 <div class="DCategoryNews">
                     <div class="border_bottom"><a href="{{ route('category', 'আমেরিকা') }}"><span class="DCategoryTitle">আমেরিকা</span></a></div>
                     <div class="row">
-                        @foreach ($america as $news)
+                        @foreach ($america->take(3) as $news)
+                            <div class="col-sm-4">
+                                <a href="{{ route('news', $news->slug) }}"><img src="{{ asset('uploads/news/' . $news->featured_image) }}" alt="{{ $news->title }}" title="{{ $news->title }}" class="img-responsive img100">
+                                    <p>{{ $news->title }}</p>
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="row">
+                        @foreach ($america->skip(3) as $news)
                             <div class="col-sm-4">
                                 <a href="{{ route('news', $news->slug) }}"><img src="{{ asset('uploads/news/' . $news->featured_image) }}" alt="{{ $news->title }}" title="{{ $news->title }}" class="img-responsive img100">
                                     <p>{{ $news->title }}</p>

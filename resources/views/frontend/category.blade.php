@@ -24,7 +24,7 @@
                                 </div>
                                 <div class="col-sm-5">
                                     <a href="{{ route('news', $news->slug) }}">
-                                        <p>{!! limitString($news->content, 280) !!}</p>
+                                        <p>{!! explode('<img', limitString($news->content, 280))[0] !!}</p>
                                     </a>
                                 </div>
                                 <div class="col-sm-7">
@@ -47,7 +47,7 @@
                                         <a href="{{ route('news', $news->slug) }}">
                                             <h3 class="H3Head">{{ $news->title }}</h3>
                                         </a>
-                                        <p>{!! limitString($news->content, 160) !!}</p>
+                                        <p>{!! explode('<img', limitString($news->content, 160))[0] !!}</p>
                                         <p class="DDate">{{ convertTimeToBangla($news->created_at->format('h:i A')) }}, {{ bangla_date($news->created_at->timestamp, 'en') }}</p>
                                     </div>
                                 </div>

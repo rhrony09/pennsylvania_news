@@ -7,10 +7,9 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <table class="table table-bordered table-striped align-middle text-center datatable" width="100%" style="min-width: 800px">
+            <table class="table table-bordered table-striped align-middle text-center" width="100%" style="min-width: 800px">
                 <thead>
                     <tr>
-                        <th class="text-center" width="5%">S/N</th>
                         <th class="text-center" width="130px">Image</th>
                         <th width="35%">Title</th>
                         <th class="text-center">Category</th>
@@ -22,7 +21,6 @@
                 <tbody>
                     @foreach ($all_news as $news)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
                             <td><img class="news-thumbnail" src="{{ asset('uploads/news/' . $news->featured_image) . '?v=' . now()->timestamp }}" alt="{{ $news->title }}"></td>
                             <td class="text-start">{{ $news->title }}</td>
                             <td>{{ $news->category ? $news->category->name : '--' }}</td>
@@ -42,6 +40,9 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class="py-3">
+                {{ $all_news->links() }}
+            </div>
         </div>
     </div>
 @endsection

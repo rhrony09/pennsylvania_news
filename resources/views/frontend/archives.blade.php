@@ -42,7 +42,7 @@
                                     <div class="col-sm-8">
                                         <p><a href="{{ route('news', $news->slug) }}"></a></p>
                                         <h3><a href="{{ route('news', $news->slug) }}">{{ $news->title }}</a></h3>
-                                        <p>{!! limitString($news->content, 160) !!}</p>
+                                        <p>{!! explode('<img', limitString($news->content, 160))[0] !!}</p>
                                         <p class="DDate">{{ convertTimeToBangla($news->created_at->format('h:i A')) }}, {{ bangla_date($news->created_at->timestamp, 'en') }}</p>
                                     </div>
                                 </div>
